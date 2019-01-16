@@ -719,12 +719,12 @@ if (!window.clearImmediate) {
 
     /* Actually draw the text on the grid */
     var drawText = function drawText(gx, gy, info, word, weight,
-                                     distance, theta, rotateDeg, attributes) {
+                                     distance, theta, rotateDeg, attributes, item) {
 
       var fontSize = info.fontSize;
       var color;
       if (getTextColor) {
-        color = getTextColor(word, weight, fontSize, distance, theta);
+        color = getTextColor(word, weight, fontSize, distance, theta, item);
       } else {
         color = settings.color;
       }
@@ -954,7 +954,7 @@ if (!window.clearImmediate) {
 
         // Actually put the text on the canvas
         drawText(gx, gy, info, word, weight,
-                 (maxRadius - r), gxy[2], rotateDeg, attributes);
+                 (maxRadius - r), gxy[2], rotateDeg, attributes, item);
 
         // Mark the spaces on the grid as filled
         updateGrid(gx, gy, gw, gh, info, item);

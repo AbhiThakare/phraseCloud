@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo</title>
+</head>
+<body>
+    <h1 id="normal">Cloud</h1>
+    <div id="container" style="height: 400px;"></div>
+    <script src="dist/js2wordcloud.js"></script>
+    <script>
+        var option = {
+            tooltip: {
+                show: true,
+                formatter: function(item) {
+                    return item[0] + ': Text <br>' + item[1] + '<br>' + 'Text'
+                }
+            },
+            list: [
+				["urgent", 7, 'low'],
+				["bullets", 4, 'high'],
+				["KidPics", 4, 'urgent'],
+				["Kiddiefuck", 3],
+				["Illegal.cp", 3],
+				["Hardlola", 2],
+				["suicide", 2],
+				["Jailbait", 2], 
+				["Hotloli", 1],
+				["ISIS", 1],
+				["butt pirate", 1],
+				["buttpilot", 1],
+				["cameljockey", 1],
+				["Cutting", 1],
+				["fagtard", 1],
+				["fudgepacker", 1]
+			 ],
+            // list:[["玻璃瓶",941],["塑料瓶",15],["易拉罐",3]],
+            color: function (word, riskValue, fontSize, distance, theta, item) {
+				console.log(word);
+				console.log(riskValue);
+				console.log(fontSize);
+				console.log(distance);
+				console.log(theta);
+				console.log(item);
+                return (riskValue === 1) ? '#4682b4' : getColors(riskValue);
+            },
+            shape: 'circle',
+            ellipticity: 1
+        }
+		function getColors(riskValue) {
+			return "#56ad89";
+		}
+        var wc = new Js2WordCloud(document.getElementById('container'))
+		wc.setOption(option)
+        
+    </script>
+</body>
+</html>
