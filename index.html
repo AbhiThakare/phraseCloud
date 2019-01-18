@@ -36,12 +36,6 @@
 			 ],
             // list:[["玻璃瓶",941],["塑料瓶",15],["易拉罐",3]],
             color: function (word, riskValue, fontSize, distance, theta, item) {
-				console.log(word);
-				console.log(riskValue);
-				console.log(fontSize);
-				console.log(distance);
-				console.log(theta);
-				console.log(item);
                 return (riskValue === 1) ? '#4682b4' : getColors(riskValue);
             },
             shape: 'circle',
